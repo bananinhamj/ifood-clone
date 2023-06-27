@@ -1,16 +1,25 @@
-import React from 'react';
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import { MaterialIcons } from '@expo/vector-icons';
 
-import Home from './screens/Home';
-import Busca from './screens/Busca';
-import Perfil from './screens/Perfil';
-import Pedidos from './screens/Pedidos';
+import Perfil from './Screens/Perfil';
+import Pagamentos from './Screens/Pagamentos';
+import Busca from './Screens/Busca';
+import Home from './Screens/Home';
+import Pedidos from './Screens/Pedidos';
 
 const BottomTab = createBottomTabNavigator();
+const PerfilStack = createStackNavigator();
 
+function PerfilRoutes() {
+  return (
+    <PerfilStack.Navigator>
+      <PerfilStack.Screen name="Perfil" component={Perfil} />
+      <PerfilStack.Screen name="Pagamentos" component={Pagamentos} />
+    </PerfilStack.Navigator>
+  );
+} 
 export default function Routes() {
   return (
     <NavigationContainer>
@@ -51,9 +60,10 @@ export default function Routes() {
           }}
         />
         <BottomTab.Screen
-          name="Perfil"
-          component={Perfil}
+          name="PerfilRoutes"
+          component={PerfilRoutes}
           options={{
+            headerShown: false,
             tabBarLabel: 'Perfil',
             tabBarIcon: ({ color }) => (
               <MaterialIcons name="person" color={color} size={26} />
@@ -64,3 +74,4 @@ export default function Routes() {
     </NavigationContainer>
   );
 }
+

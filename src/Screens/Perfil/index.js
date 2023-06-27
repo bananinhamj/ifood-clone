@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView,View, Text,TouchableOpacity, StyleSheet } from 'react-native';
-import { MaterialCommunityIcons, MaterialCommunityIcons} from '@expo/vector-icons'
+import { MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons'
 
 export default function Perfil({navigation}) {
   return (
@@ -83,7 +83,7 @@ export default function Perfil({navigation}) {
             <MaterialIcons name="settings" size={25} color="#CDC"/>
             <Text style={styles.optionName}>Configurações</Text>
           </View>
-          <MaterialIons name="keyboard-arrow-right" color="#999" size={20}/>
+          <MaterialIcons name="keyboard-arrow-right" color="#999" size={20}/>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.opcoesAdicionais}>
